@@ -1,0 +1,4 @@
+rmtfs/
+pkg/
+src/
+*.pkg.tar.zst
