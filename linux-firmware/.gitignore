@@ -1,0 +1,4 @@
+linux-firmware/
+pkg/
+src/
+*.pkg.tar.zst
