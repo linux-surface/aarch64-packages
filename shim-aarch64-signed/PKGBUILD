@@ -1,0 +1,20 @@
+# Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
+# Based on https://aur.archlinux.org/packages/shim-signed
+
+pkgname='shim-aarch64-signed'
+pkgver='15.4+fedora+5'
+pkgrel='1'
+pkgdesc="Initial UEFI bootloader that handles chaining to a trusted full bootloader under secure boot environments (prebuilt AArch64 EFI binaries from Fedora)"
+url='https://koji.fedoraproject.org/koji/packageinfo?packageID=14502'
+arch=('any')
+license=('BSD')
+options=('!strip')
+# https://kojipkgs.fedoraproject.org//packages/shim/15.4/5/aarch64/shim-aa64-15.4-5.aarch64.rpm
+source=("https://kojipkgs.fedoraproject.org/packages/shim/${pkgver//+fedora+/\/}/aarch64/shim-aa64-${pkgver//+fedora+/-}.aarch64.rpm")
+sha512sums=('b43cbd8764fd37dc3245bc96c5ed932afb5da21461a0ccca98274c23a870a3a23e8839667fbf696cfcd5c57a09997dfd6f4d48c785d31185ab9148421e5d894b')
+
+package() {
+    install -D -m0644 -t "${pkgdir}/usr/share/shim-signed/" "${srcdir}/boot/efi/EFI/fedora/shimaa64.efi"
+    install -D -m0644 -t "${pkgdir}/usr/share/shim-signed/" "${srcdir}/boot/efi/EFI/fedora/mmaa64.efi"
+    install -D -m0644 -t "${pkgdir}/usr/share/shim-signed/" "${srcdir}/boot/efi/EFI/BOOT/fbaa64.efi"
+}
