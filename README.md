@@ -12,11 +12,12 @@ See https://github.com/linux-surface/aarch64-firmware for a script that does thi
 ## `linux-surface`
 
 Linux kernel packages for the Surface Pro X.
+Use `makepkg-aarch64` to cross-compile from any host, e.g. `x86_64`.
 
 
 ## `makepkg-aarch64`
 
-`makepkg-aarch64` command for (cross-)compiling Arch Linux AArch64 packages from any host system.
+`makepkg-aarch64` command for (cross-)compiling Arch Linux AArch64 packages from any host system (e.g. `x86_64`).
 _Warning: This will only work for some packages._
 _In particular, this will not work for packages linking to external libraries._
 
