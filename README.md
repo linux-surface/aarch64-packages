@@ -14,3 +14,8 @@ See https://github.com/linux-surface/aarch64-firmware for a script that does thi
 Patched Qualcomm Remote File System ([`rmtfs`](https://github.com/andersson/rmtfs)) service.
 Uses dummy files instead of vendor-provided EFS partitions.
 This is currently required on the Surface Pro X as the EFS partitions are not available to us yet.
+
+
+## `shim-aarch64-signed`
+
+Signed Secure-Boot `shim.efi` executable and associated tools for AArch64, as provided by openSUSE (https://software.opensuse.org/package/shim).
