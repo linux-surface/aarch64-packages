@@ -13,6 +13,7 @@ See https://github.com/linux-surface/aarch64-firmware for a script that does thi
 
 Linux kernel packages for the Surface Pro X.
 Use `makepkg-aarch64` to cross-compile from any host, e.g. `x86_64`.
+Set `MAKEFLAGS="-j$(nproc)"` (or similar) to use all available cores for building.
 
 
 ## `makepkg-aarch64`
