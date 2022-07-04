@@ -9,6 +9,13 @@ Note: You will need to obtain firmware from Windows separately and provide the p
 See https://github.com/linux-surface/aarch64-firmware for a script that does this for you and sets up the required firmware tree.
 
 
+## `makepkg-aarch64`
+
+`makepkg-aarch64` command for (cross-)compiling Arch Linux AArch64 packages from any host system.
+_Warning: This will only work for some packages._
+_In particular, this will not work for packages linking to external libraries._
+
+
 ## `rmtfs-dummy`
 
 Patched Qualcomm Remote File System ([`rmtfs`](https://github.com/andersson/rmtfs)) service.
