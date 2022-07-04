@@ -9,6 +9,11 @@ Note: You will need to obtain firmware from Windows separately and provide the p
 See https://github.com/linux-surface/aarch64-firmware for a script that does this for you and sets up the required firmware tree.
 
 
+## `linux-surface`
+
+Linux kernel packages for the Surface Pro X.
+
+
 ## `makepkg-aarch64`
 
 `makepkg-aarch64` command for (cross-)compiling Arch Linux AArch64 packages from any host system.
