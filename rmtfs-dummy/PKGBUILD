@@ -41,6 +41,11 @@ prepare() {
 build() {
     cd "rmtfs"
 
+    # force use of pre-compiled qmi output if available
+    if [[ -f "$srcdir/rmtfs/qmi_rmtfs.c" ]]; then
+        touch "$srcdir/rmtfs/qmi_rmtfs.c"
+    fi
+
     make prefix=/usr
 }
 
