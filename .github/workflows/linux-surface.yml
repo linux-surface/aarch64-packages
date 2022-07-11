@@ -134,7 +134,7 @@ jobs:
 
         # convert packages into references
         for pkg in $(find . -name '*.pkg.tar.zst'); do
-          echo "linux-surface:$GIT_TAG/$(basename $pkg)" > $pkg.blob
+          echo "aarch64-packages:$GIT_TAG/$(basename $pkg)" > $pkg.blob
           rm $pkg
         done
 
