@@ -24,8 +24,14 @@ license=('GPL2' 'GPL3' 'custom')
 arch=('any')
 makedepends=('git')
 options=(!strip)
-source=("git+https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git#tag=${_tag}?signed")
-sha256sums=('SKIP')
+
+source=(
+  "git+https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git#tag=${_tag}?signed"
+  "git+https://github.com/linux-surface/aarch64-firmware.git"
+)
+sha256sums=('SKIP'
+            'SKIP')
+
 validpgpkeys=('4CDE8575E547BF835FE15807A31B6BD72486CFD6') # Josh Boyer <jwboyer@fedoraproject.org>
 
 _backports=(
@@ -42,14 +48,8 @@ prepare() {
     git cherry-pick -n "${_c}"
   done
 
-  # add firmware files required for the Pro X and replace updated/patched ones
-  if test -z "${SPX_FIRMWARE_ROOT}"; then
-    error "path to Pro X specific firmware must be provided via SPX_FIRMWARE_ROOT environment variable"
-    exit 1
-  fi
-
   msg2 "Adding/patching firmware for Surface Pro X"
-  cp -rf "${SPX_FIRMWARE_ROOT}"/* .
+  cp -a "${srcdir}/aarch64-firmware/firmware/." .
 
   # update WHENCE
   echo "" >> WHENCE
