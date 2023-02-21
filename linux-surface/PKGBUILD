@@ -3,7 +3,7 @@
 # Based on Arch Linux and Arch Linux for ARM PKGBUILDs
 
 pkgbase="linux-surface"
-pkgver="6.1.8"
+pkgver="6.1.12"
 pkgrel="1"
 
 _pkgdesc="Linux Surface"
@@ -12,7 +12,7 @@ arch=("aarch64")
 options=("!strip")
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'dtc')
 
-_ref_ksource="c5ece1fa62ae5fa42c621fc980fd61724b587b9c"
+_ref_ksource="b46beaecd428593db7130be6d39c0681617f41fc"
 _ref_config_base="66939ed659ba3264de66be3dea6a7e3da074be8f"
 _ref_config_surface="c1a6491130e154ad0c51818050b1501b6b5638f8"
 
