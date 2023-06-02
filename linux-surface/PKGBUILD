@@ -3,7 +3,7 @@
 # Based on Arch Linux and Arch Linux for ARM PKGBUILDs
 
 pkgbase="linux-surface"
-pkgver="6.3.1"
+pkgver="6.3.5"
 pkgrel="1"
 
 _pkgdesc="Linux Surface"
@@ -12,9 +12,9 @@ arch=("aarch64")
 options=("!strip")
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'dtc')
 
-_ref_ksource="c1fa278883c5ee5d07ae2b51c84eeadeadc1940a"
+_ref_ksource="03ca71f8e252ca0eb70555ec714c79b973b16896"
 _ref_config_base="ac1d5e3aed61c01e03a90d7047f10da713ffcf92"
-_ref_config_surface="c1a6491130e154ad0c51818050b1501b6b5638f8"
+_ref_config_surface="8624988ae6d650f66d57444b48d7be6cb9378cbf"
 
 source=(
     "kernel::git+https://github.com/linux-surface/kernel.git#commit=${_ref_ksource}"
@@ -25,7 +25,7 @@ source=(
 )
 sha256sums=('SKIP'
             '66a40fdb61dabc9fac8cc37d6c1a82749148c7c63adeabd6824e3ad209aba109'
-            '4ae1b98f5968f1b0a02ba3a485a72cbe1d561552b00bceef123e6510d94bc2db'
+            'b071478ff06e2b33f520dd5fca6178d6289e29965dc21e2831a12fa62a35e005'
             'f8041d666e2775b2e36d243708b0fae574914a0ce2a4e260c19127932f3d072e'
             '93a04085e8cebbd5feab98482d764b515b30dd95945d33117d1cd27ffe03e3e7')
 
