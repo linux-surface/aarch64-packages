@@ -15,8 +15,8 @@
 _pkgbase=linux-firmware
 pkgbase=${_pkgbase}-msft-surface-pro-x
 pkgname=(${pkgbase}-whence ${pkgbase} ${pkgbase}-qcom)
-_tag=20220509
-pkgver=20220509.b19cbdc
+_tag=20230515
+pkgver=20230515.51290942
 pkgrel=1
 pkgdesc="Firmware files for Linux"
 url="https://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git;a=summary"
