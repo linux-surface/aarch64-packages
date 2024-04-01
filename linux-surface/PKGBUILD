@@ -3,7 +3,7 @@
 # Based on Arch Linux and Arch Linux for ARM PKGBUILDs
 
 pkgbase="linux-surface"
-pkgver="6.6.8"
+pkgver="6.8.2"
 pkgrel="1"
 
 _pkgdesc="Linux Surface"
@@ -12,9 +12,9 @@ arch=("aarch64")
 options=("!strip")
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'dtc')
 
-_ref_ksource="0b677302860d4d80c57d2f04cd402d2ffb84d3a1"
-_ref_config_base="ac1d5e3aed61c01e03a90d7047f10da713ffcf92"
-_ref_config_surface="38127471e031490849a1fc08dc753b31c3f1dc23"
+_ref_ksource="ee97af947e012bf96dd4a3348bcacd67cc5af711"
+_ref_config_base="9b0f0dc178d4c4fb69285643fa7e81da7db21444"
+_ref_config_surface="a5ea7de82e4d9bd6f6ba8c8e1f9621056d771723"
 
 source=(
     "kernel::git+https://github.com/linux-surface/kernel.git#commit=${_ref_ksource}"
@@ -23,9 +23,9 @@ source=(
     "overrides.config"
     "linux-surface.preset"
 )
-sha256sums=('SKIP'
-            '66a40fdb61dabc9fac8cc37d6c1a82749148c7c63adeabd6824e3ad209aba109'
-            '843b5d70b82dee7430b6149f9c84554e5f93f89fc714ab774ad13181b70346d0'
+sha256sums=('b91a7c5eb4d5c35648a7ce244a059b45ac8ae6afa4fa0cc33fb14ba98a951bb4'
+            '165b382e4ab13251d15d9f41e50976131b410fa4fa2d5fe5f1a081a58c235a52'
+            '6769de357507321f4332b1bbd20f4e3fd4460790f2ef4728d49ab9e2634f085a'
             'f8041d666e2775b2e36d243708b0fae574914a0ce2a4e260c19127932f3d072e'
             '93a04085e8cebbd5feab98482d764b515b30dd95945d33117d1cd27ffe03e3e7')
 
