@@ -1,0 +1,5 @@
+pkg/
+src/
+tqftpserv/
+*.pkg.tar.zst
+*.pkg.tar.xz
