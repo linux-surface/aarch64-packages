@@ -1,0 +1,5 @@
+pkg/
+src/
+pd-mapper/
+*.pkg.tar.zst
+*.pkg.tar.xz
