@@ -1,0 +1,5 @@
+pkg/
+src/
+qmic/
+*.pkg.tar.zst
+*.pkg.tar.xz

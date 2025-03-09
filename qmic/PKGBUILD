@@ -1,0 +1,27 @@
+# Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
+
+pkgname=qmic
+pkgver=v1.0.r0.g4574736
+pkgrel=1
+pkgdesc="Qualcomm QMI IDL compiler (unofficial)"
+arch=('armv7h' 'aarch64' 'x86_64')
+url="https://github.com/linux-msm/qmic"
+license=('BSD')
+makedepends=('git')
+source=('git+https://github.com/linux-msm/qmic.git')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "$pkgname"
+	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+	cd "$pkgname"
+	make
+}
+
+package() {
+	cd "$pkgname"
+	make DESTDIR="$pkgdir" prefix="/usr" install
+}
