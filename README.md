@@ -23,7 +23,7 @@ _In particular, this will not work for packages linking to external libraries._
 
 ## `rmtfs-dummy`
 
-Patched Qualcomm Remote File System ([`rmtfs`](https://github.com/andersson/rmtfs)) service.
+Patched Qualcomm Remote File System ([`rmtfs`](https://github.com/linux-msm/rmtfs)) service.
 Uses dummy files instead of vendor-provided EFS partitions.
 This is currently required on the Surface Pro X as the EFS partitions are not available to us yet.
 
