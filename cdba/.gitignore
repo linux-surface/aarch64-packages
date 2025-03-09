@@ -1,0 +1,5 @@
+pkg/
+src/
+cdba/
+*.pkg.tar.zst
+*.pkg.tar.xz

@@ -1,0 +1,29 @@
+# Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
+
+pkgname=cdba
+pkgver=v1.0.r63.g4320c48
+pkgrel=1
+pkgdesc="CDBA"
+arch=('armv7h' 'aarch64' 'x86_64')
+url="https://github.com/linux-msm/cdba"
+license=('BSD')
+depends=('libftdi' 'libgpiod')
+makedepends=('git' 'meson' 'ninja')
+source=('git+https://github.com/linux-msm/cdba.git')
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "$pkgname"
+	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+	cd "$pkgname"
+    arch-meson . build
+    meson compile -C build
+}
+
+package() {
+	cd "$pkgname"
+    meson install -C build --destdir "$pkgdir"
+}
