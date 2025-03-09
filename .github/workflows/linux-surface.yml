@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Install build dependencies
       run: |
@@ -71,7 +71,7 @@ jobs:
         ls *.pkg.tar.zst | xargs -L1 gpg --detach-sign --batch --no-tty -u $GPG_KEY_ID
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: linux-surface-aarch64-latest
         path: release
@@ -83,7 +83,7 @@ jobs:
 
     steps:
     - name: Download artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: linux-surface-aarch64-latest
         path: linux-surface-aarch64-latest
@@ -110,7 +110,7 @@ jobs:
         pacman -S --noconfirm base-devel git
 
     - name: Download artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: linux-surface-aarch64-latest
         path: linux-surface-aarch64-latest
