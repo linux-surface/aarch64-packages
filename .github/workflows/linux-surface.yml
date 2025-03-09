@@ -35,7 +35,7 @@ jobs:
         chown -R nobody .
 
         # Build and install 
-        su nobody --pty -p -s /bin/bash -c 'makepkg -fi --syncdeps --skippgpcheck --noconfirm'
+        runuser -u nobody -- makepkg -fi --syncdeps --skippgpcheck --noconfirm
 
     - name: Build Package
       run: |
@@ -50,7 +50,7 @@ jobs:
         export MAKEFLAGS="-j2"
 
         # Build
-        su nobody --pty -p -s /bin/bash -c 'makepkg-aarch64 -f --syncdeps --skippgpcheck --noconfirm'
+        runuser -u nobody -- makepkg-aarch64 -f --syncdeps --skippgpcheck --noconfirm
 
     - name: Prepare release
       run: |
