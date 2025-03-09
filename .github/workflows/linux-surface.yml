@@ -35,7 +35,8 @@ jobs:
         chown -R nobody .
 
         # Build and install 
-        runuser -u nobody -- makepkg -fi --syncdeps --skippgpcheck --noconfirm
+        runuser -u nobody -- makepkg -f --syncdeps --skippgpcheck --noconfirm
+        pacman -U --noconfirm makepkg-aarch64-*.pkg.tar.zst
 
     - name: Build Package
       run: |
