@@ -7,7 +7,7 @@
 _pkgname="rmtfs-dummy"
 pkgname="$_pkgname-git"
 pkgdesc="Qualcomm Remote Filesystem Service Implementation with Dummy Modem Files"
-pkgver=v0.2.r37.gb08ef6f
+pkgver=v1.1.r7.gf245708
 pkgrel=1
 arch=("aarch64")
 url="https://github.com/andersson/rmtfs"
@@ -18,13 +18,13 @@ makedepends=("git" "make" "gcc")
 provides=("rmtfs")
 conflicts=("rmtfs")
 source=(
-    "git+https://github.com/andersson/rmtfs.git"
+    "git+https://github.com/linux-msm/rmtfs.git"
     "udev.rules"
     "0001-Redirect-file-lookups-to-var-lib-rmtfs.patch"
 )
 sha256sums=('SKIP'
             '0c2f26d40d9d18e3089c6d836b64231c4f7e0c1ca41686fe7c9d1eb495dc6bbe'
-            'e3018310920261f56e7eb57f4d41ae781157771317764710b516079bf843bf5b')
+            '6a1e8e84c76185192e103416d1ee3910fd70df8e31062b079c8d7d89fd06a2f0')
 
 pkgver() {
     cd "rmtfs"
