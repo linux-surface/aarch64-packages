@@ -9,8 +9,8 @@ env:
 jobs:
   build:
     name: Build Linux kernel package
-    runs-on: ubuntu-latest
-    container: archlinux
+    runs-on: ubuntu-24.04-arm
+    container: heywoodlh/archlinuxarm
 
     steps:
     - name: Checkout code
@@ -22,22 +22,10 @@ jobs:
         pacman --noconfirm -Syu
         pacman --noconfirm -S sudo binutils fakeroot base-devel git   \
                               xmlto docbook-xsl kmod inetutils bc dtc \
-                              aarch64-linux-gnu-gcc aarch64-linux-gnu-glibc \
                               python
 
         # Fix permissions (can't makepkg as root)
         echo "nobody ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> /etc/sudoers
-
-    - name: Set up makepkg-aarch64 for cross-compilation
-      run: |
-        cd makepkg-aarch64
-
-        # Fix permissions (can't makepkg as root)
-        chown -R nobody .
-
-        # Build and install 
-        runuser -u nobody -- makepkg -f --syncdeps --skippgpcheck --noconfirm
-        pacman -U --noconfirm makepkg-aarch64-*.pkg.tar.zst
 
     - name: Build Package
       run: |
@@ -52,7 +40,7 @@ jobs:
         export MAKEFLAGS="-j2"
 
         # Build
-        runuser -u nobody -- makepkg-aarch64 -f --syncdeps --skippgpcheck --noconfirm
+        runuser -u nobody -- makepkg -f --syncdeps --skippgpcheck --noconfirm
 
     - name: Prepare release
       run: |
