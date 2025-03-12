@@ -4,7 +4,7 @@
 
 pkgbase="linux-surface"
 pkgver="6.13.6"
-pkgrel="1"
+pkgrel="2"
 
 _pkgdesc="Linux Surface"
 
