@@ -1,7 +1,7 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=rmtfs
-pkgver=v1.1.r7.gf245708
+pkgver=v1.1.1.r4.gf7566e4
 pkgrel=1
 pkgdesc="Qualcomm Remote Filesystem service"
 arch=('armv7h' 'aarch64' 'x86_64')

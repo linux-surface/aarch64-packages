@@ -1,7 +1,7 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=tqftpserv
-pkgver=v1.0.r32.g533779c
+pkgver=v1.0.r43.g408ca1e
 pkgrel=1
 pkgdesc="Qualcomm QRTR TFTP service"
 arch=('armv7h' 'aarch64' 'x86_64')

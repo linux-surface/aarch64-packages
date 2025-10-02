@@ -7,7 +7,7 @@
 _pkgname="rmtfs-dummy"
 pkgname="$_pkgname-git"
 pkgdesc="Qualcomm Remote Filesystem Service Implementation with Dummy Modem Files"
-pkgver=v1.1.r7.gf245708
+pkgver=v1.1.1.r4.gf7566e4
 pkgrel=1
 arch=('armv7h' 'aarch64' 'x86_64')
 url="https://github.com/linux-msm/rmtfs"
