@@ -1,0 +1,33 @@
+From 505eb166ece1f2d6868eb5c9fee16a926830c3c0 Mon Sep 17 00:00:00 2001
+From: Maximilian Luz <luzmaximilian@gmail.com>
+Date: Sat, 3 Jan 2026 22:58:44 +0100
+Subject: [PATCH] rmtfs: Fix command line argument parsing for '-o' optarg
+
+Commit 2ee01bf ("storage: Try opening the slot-suffixed partition")
+introduced a bug where option '-o' is incorrectly specified as having no
+argument. Therefore, passing -o with a path incorrectly sets that path
+to the default '/boot' one as optarg evaluates to NULL. Fix this by
+telling getopt that we expect an argument.
+
+Fixes: 2ee01bf ("storage: Try opening the slot-suffixed partition")
+Signed-off-by: Maximilian Luz <luzmaximilian@gmail.com>
+---
+ rmtfs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rmtfs.c b/rmtfs.c
+index f48d738..ec33a19 100644
+--- a/rmtfs.c
++++ b/rmtfs.c
+@@ -505,7 +505,7 @@ int main(int argc, char **argv)
+ 	int option;
+ 	const char *storage_root = NULL;
+ 
+-	while ((option = getopt(argc, argv, "oS:Prsv")) != -1) {
++	while ((option = getopt(argc, argv, "o:S:Prsv")) != -1) {
+ 		switch (option) {
+ 		/*
+ 		 * -o sets the directory where EFS images are stored,
+-- 
+2.52.0
+

@@ -1,7 +1,7 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=rmtfs
-pkgver=v1.1.1.r4.gf7566e4
+pkgver=v1.1.1.r6.gf9847a7
 pkgrel=1
 pkgdesc="Qualcomm Remote Filesystem service"
 arch=('armv7h' 'aarch64' 'x86_64')
@@ -9,12 +9,22 @@ url="https://github.com/linux-msm/rmtfs"
 license=('BSD')
 makedepends=('git' 'qmic')
 depends=('qrtr')
-source=('git+https://github.com/linux-msm/rmtfs.git')
-sha256sums=('SKIP')
+source=(
+	'git+https://github.com/linux-msm/rmtfs.git'
+    "0001-rmtfs-Fix-command-line-argument-parsing-for-o-optarg.patch"
+)
+sha256sums=('SKIP'
+            '44ea5652f9379715dc8fd4c35e7a052fb79436097ba4572b82f041c56b1bcb00')
 
 pkgver() {
 	cd "$pkgname"
 	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+    cd "rmtfs"
+
+    git apply "$srcdir/0001-rmtfs-Fix-command-line-argument-parsing-for-o-optarg.patch"
 }
 
 build() {
