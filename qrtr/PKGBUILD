@@ -1,7 +1,7 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=qrtr
-pkgver=v1.1.r5.g5923eea
+pkgver=v1.2.r6.ga38e9af
 pkgrel=1
 pkgdesc="Qualcomm QRTR name service"
 arch=('armv7h' 'aarch64' 'x86_64')
