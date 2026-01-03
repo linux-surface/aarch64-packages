@@ -7,7 +7,7 @@
 _pkgname="rmtfs-dummy"
 pkgname="$_pkgname-git"
 pkgdesc="Qualcomm Remote Filesystem Service Implementation with Dummy Modem Files"
-pkgver=v1.1.1.r4.gf7566e4
+pkgver=v1.1.1.r6.gf9847a7
 pkgrel=1
 arch=('armv7h' 'aarch64' 'x86_64')
 url="https://github.com/linux-msm/rmtfs"
@@ -21,10 +21,12 @@ source=(
     "git+https://github.com/linux-msm/rmtfs.git"
     "udev.rules"
     "0001-Redirect-file-lookups-to-var-lib-rmtfs.patch"
+    "0001-rmtfs-Fix-command-line-argument-parsing-for-o-optarg.patch"
 )
 sha256sums=('SKIP'
             '0c2f26d40d9d18e3089c6d836b64231c4f7e0c1ca41686fe7c9d1eb495dc6bbe'
-            'abafa00c59d1d3ba49fe253fa768f3991a1901fd2e4e0a914f93f9ce18b4cf9f')
+            'abafa00c59d1d3ba49fe253fa768f3991a1901fd2e4e0a914f93f9ce18b4cf9f'
+            '44ea5652f9379715dc8fd4c35e7a052fb79436097ba4572b82f041c56b1bcb00')
 
 pkgver() {
     cd "rmtfs"
@@ -36,6 +38,7 @@ prepare() {
     cd "rmtfs"
 
     git apply "$srcdir/0001-Redirect-file-lookups-to-var-lib-rmtfs.patch"
+    git apply "$srcdir/0001-rmtfs-Fix-command-line-argument-parsing-for-o-optarg.patch"
 }
 
 build() {
