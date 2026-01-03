@@ -1,7 +1,7 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=pd-mapper
-pkgver=v1.0.r7.ge7c42e1
+pkgver=v1.0.r13.g5ecd2fe
 pkgrel=1
 pkgdesc="Qualcomm PD mapper service"
 arch=('armv7h' 'aarch64' 'x86_64')
