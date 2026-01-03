@@ -1,7 +1,7 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=cdba
-pkgver=v1.0.r63.g4320c48
+pkgver=v1.0.r73.gb6c766d
 pkgrel=1
 pkgdesc="CDBA"
 arch=('armv7h' 'aarch64' 'x86_64')
