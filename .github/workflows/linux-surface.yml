@@ -10,7 +10,7 @@ jobs:
   build:
     name: Build Linux kernel package
     runs-on: ubuntu-24.04-arm
-    container: heywoodlh/archlinuxarm
+    container: pkgforge/archlinux
 
     steps:
     - name: Checkout code
