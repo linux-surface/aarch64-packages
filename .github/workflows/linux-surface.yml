@@ -19,8 +19,8 @@ jobs:
     - name: Install build dependencies
       run: |
         # Install makepkg deps
-        pacman --noconfirm -Syu
-        pacman --noconfirm -S sudo binutils fakeroot base-devel git   \
+        pacman --disable-sandbox --noconfirm -Syu
+        pacman --disable-sandbox --noconfirm -S sudo binutils fakeroot base-devel git   \
                               xmlto docbook-xsl kmod inetutils bc dtc \
                               python
 
@@ -96,8 +96,8 @@ jobs:
     steps:
     - name: Install dependencies
       run: |
-        pacman -Syu --noconfirm
-        pacman -S --noconfirm base-devel git
+        pacman -Syu --disable-sandbox --noconfirm
+        pacman -S --disable-sandbox --noconfirm base-devel git
 
     - name: Download artifacts
       uses: actions/download-artifact@v4
