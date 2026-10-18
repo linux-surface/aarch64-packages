@@ -1,13 +1,13 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=qrtr
-pkgver=v1.2.r6.ga38e9af
+pkgver=v1.2.r18.g29e36ae
 pkgrel=1
 pkgdesc="Qualcomm QRTR name service"
 arch=('armv7h' 'aarch64' 'x86_64')
 url="https://github.com/linux-msm/qrtr"
 license=('BSD')
-makedepends=('git')
+makedepends=('git' 'meson')
 source=('git+https://github.com/linux-msm/qrtr.git')
 sha256sums=('SKIP')
 
