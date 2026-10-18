@@ -1,13 +1,13 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=tqftpserv
-pkgver=v1.0.r45.g0ed6813
+pkgver=v1.2.r23.gb31de6d
 pkgrel=1
 pkgdesc="Qualcomm QRTR TFTP service"
 arch=('armv7h' 'aarch64' 'x86_64')
 url="https://github.com/linux-msm/tqftpserv"
 license=('BSD')
-makedepends=('git' 'qmic')
+makedepends=('git' 'meson' 'qmic')
 depends=('qrtr')
 source=('git+https://github.com/linux-msm/tqftpserv.git')
 sha256sums=('SKIP')
