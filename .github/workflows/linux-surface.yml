@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
     - name: Install build dependencies
       run: |
@@ -37,7 +37,7 @@ jobs:
         # Package compression settings (Matches latest Arch)
         export PKGEXT='.pkg.tar.zst'
         export COMPRESSZST=(zstd -c -T0 --ultra -20 -)
-        export MAKEFLAGS="-j2"
+        export MAKEFLAGS="-j$(nproc)"
 
         # Build
         runuser -u nobody -- makepkg -f --syncdeps --skippgpcheck --noconfirm
@@ -61,7 +61,7 @@ jobs:
         ls *.pkg.tar.zst | xargs -L1 gpg --detach-sign --batch --no-tty -u $GPG_KEY_ID
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: linux-surface-aarch64-latest
         path: release
@@ -73,7 +73,7 @@ jobs:
 
     steps:
     - name: Download artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: linux-surface-aarch64-latest
         path: linux-surface-aarch64-latest
@@ -100,7 +100,7 @@ jobs:
         pacman -S --noconfirm base-devel git
 
     - name: Download artifacts
-      uses: actions/download-artifact@v4
+      uses: actions/download-artifact@v8
       with:
         name: linux-surface-aarch64-latest
         path: linux-surface-aarch64-latest
