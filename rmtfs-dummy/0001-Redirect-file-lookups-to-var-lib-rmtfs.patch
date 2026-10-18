@@ -1,19 +1,19 @@
-From ca09061c85b5be50f1e7444b0070bf92ca889036 Mon Sep 17 00:00:00 2001
+From 97b985850cab457d3e9c12f656afc57499ce1396 Mon Sep 17 00:00:00 2001
 From: Maximilian Luz <luzmaximilian@gmail.com>
 Date: Sun, 9 Mar 2025 02:20:16 +0100
 Subject: [PATCH] Redirect file lookups to /var/lib/rmtfs
 
-Signed-off-by: Maximilian Luz <luzmaximilian@gmail.com
+Signed-off-by: Maximilian Luz <luzmaximilian@gmail.com>
 ---
  rmtfs.service.in | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/rmtfs.service.in b/rmtfs.service.in
-index 2dc08df..3ec4cd4 100644
+index f7df549..54c40d7 100644
 --- a/rmtfs.service.in
 +++ b/rmtfs.service.in
-@@ -3,7 +3,7 @@ Description=Qualcomm remotefs service
- Before=NetworkManager.service
+@@ -4,7 +4,7 @@ Before=NetworkManager.service
+ ConditionPathExists=/dev/qcom_rmtfs_mem1
  
  [Service]
 -ExecStart=RMTFS_PATH/rmtfs -r -P -s
@@ -22,5 +22,5 @@ index 2dc08df..3ec4cd4 100644
  RestartSec=1
  
 -- 
-2.51.0
+2.56.0
 
