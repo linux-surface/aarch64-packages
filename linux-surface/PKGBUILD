@@ -3,7 +3,7 @@
 # Based on Arch Linux and Arch Linux for ARM PKGBUILDs
 
 pkgbase="linux-surface"
-pkgver="6.18.3"
+pkgver="7.2.11"
 pkgrel="1"
 
 _pkgdesc="Linux Surface"
@@ -12,9 +12,9 @@ arch=("aarch64")
 options=("!strip")
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'dtc')
 
-_ref_ksource="3d83d8ff8b3c5ed045a7d576d2f0ccf2165d8c0b"
-_ref_config_base="e36ada85974d22c05d1442a4ac47f958c7fa8e15"
-_ref_config_surface="dc7be78b3d59f23405d4b49aae4c0c31123fcb10"
+_ref_ksource="e4dd8491539ef9fbd03c36118f409cc60cdb0436"
+_ref_config_base="b7704835b2a0fd85b77eb7bc873d0a865e3e984b"
+_ref_config_surface="737c5d068e59f00bc0692ad2a969a63359dfb362"
 
 source=(
     "kernel::git+https://github.com/linux-surface/kernel.git#commit=${_ref_ksource}"
@@ -23,19 +23,22 @@ source=(
     "overrides.config"
     "linux-surface.preset"
 )
-sha256sums=('548fb5c7b626e955af82c77ee6fdd9437f6a5383ac962f825d40b71186ebb3cb'
-            '7224624cb815e7c4d989cea2d8c6abf25f02c280db66ce28e023e12cb177965f'
-            '6769de357507321f4332b1bbd20f4e3fd4460790f2ef4728d49ab9e2634f085a'
-            'f8041d666e2775b2e36d243708b0fae574914a0ce2a4e260c19127932f3d072e'
-            '93a04085e8cebbd5feab98482d764b515b30dd95945d33117d1cd27ffe03e3e7')
+sha256sums=('72e9c634cfe89779e2e3840a0cb63653c4a0fa051de86b8855a099e46c3f9e25'
+            'ba79ced759e4f4809f99a262ee839c382b66d98ae6b0c424c9ced4675b2157f0'
+            '39b9618c510107787a2fd3a3e91e6e5dc3652007338db57f0825a6450cc3ceb5'
+            'b35ff35b50b1b461e95c8ef46b34ab11ce922ae2ab9825e7ba923ef960986546'
+            'ad6344badc91ad0630caacde83f7f9b97276f80d26a20619a87952be65492c65')
+
+# Setting LOCALVERSION (even to empty) prevents setlocalversion from appending
+# a "+" for the git source tree. Export globally so that the kernel release
+# stays consistent across build() and package().
+export LOCALVERSION=""
 
 prepare() {
     cd "${srcdir}/kernel"
 
     msg2 "Setting version..."
 
-    echo "" > ".scmversion"                         # ignore uncommitted changes
-    # ./scripts/setlocalversion --save-scmversion   # alternative: include git tag / dirty flag
     echo "-${pkgrel}" > "localversion.10-pkgrel"
     echo "${pkgbase#linux}" > "localversion.20-pkgname"
 
@@ -65,7 +68,7 @@ build() {
 _package() {
     pkgdesc="${_pkgdesc} kernel and modules"
     depends=("coreutils" "linux-firmware" "kmod" "mkinitcpio>=0.7")
-    optdepends=("crda: to set the correct wireless channels of your country")
+    optdepends=("wireless-regdb: to set the correct wireless channels of your country")
     install="${pkgbase}.install"
 
     cd "${srcdir}/kernel"
